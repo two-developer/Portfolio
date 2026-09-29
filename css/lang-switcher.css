@@ -1,0 +1,127 @@
+/* ==========================================================================
+   Lemon Studio — lang-switcher.css
+   Seletor de idioma estilo Weglot: pill com borda, seta que gira ao abrir,
+   dropdown por baixo. Só transform/opacity na animação — barato.
+   ========================================================================== */
+
+.lang-switcher {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 150;
+}
+
+.lang-switcher-toggle {
+  height: 40px;
+  padding: 0 12px 0 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 999px;
+  background: #232323;
+  border: 1px solid #3a3a3a;
+  color: #e6e6e6;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.15s ease;
+}
+
+.lang-switcher-toggle:hover,
+.lang-switcher-toggle:focus-visible {
+  border-color: #f4d43a;
+}
+
+.lang-switcher.open .lang-switcher-toggle {
+  border-color: #f4d43a;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.lang-switcher-flag {
+  font-size: 15px;
+  line-height: 1;
+}
+
+.lang-switcher-chevron {
+  width: 13px;
+  height: 13px;
+  color: #9a9a9a;
+  transition: transform 0.18s ease;
+  flex: 0 0 auto;
+}
+
+.lang-switcher.open .lang-switcher-chevron {
+  transform: rotate(180deg);
+  color: #f4d43a;
+}
+
+.lang-menu {
+  position: absolute;
+  top: calc(100% - 1px);
+  right: 0;
+  min-width: 100%;
+  padding: 6px;
+  border-radius: 10px;
+  border-top-right-radius: 0;
+  background: #232323;
+  border: 1px solid #f4d43a;
+  border-top: none;
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.45);
+
+  opacity: 0;
+  transform: translateY(-6px);
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.15s ease, transform 0.15s ease, visibility 0.15s;
+}
+
+.lang-switcher.open .lang-menu {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.lang-menu button {
+  width: 100%;
+  padding: 9px 10px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  border-radius: 7px;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #d4d4d4;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.12s ease, color 0.12s ease;
+}
+
+.lang-menu button:hover,
+.lang-menu button:focus-visible {
+  background: rgba(244, 212, 58, 0.1);
+  color: #ffffff;
+}
+
+.lang-menu button.active {
+  color: #f4d43a;
+}
+
+.lang-menu .flag {
+  font-size: 15px;
+  line-height: 1;
+}
+
+@media (max-width: 480px) {
+  .lang-switcher { top: 14px; right: 14px; }
+  .lang-switcher-toggle { height: 36px; font-size: 12.5px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lang-switcher-chevron, .lang-menu { transition: none; }
+}

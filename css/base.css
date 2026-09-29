@@ -1,0 +1,41 @@
+/* ==========================================================================
+   Lemon Studio — base.css
+   Reset mínimo + fundo + fonte pixel local (sem requisições externas).
+   ========================================================================== */
+
+/* Fonte pixel art para a wordmark (mesma família usada no LemonEngine real).
+   Arquivo local, 13 KB, licença OFL — nenhuma requisição de rede externa. */
+@font-face {
+  font-family: "Jersey 10";
+  src: url("../fonts/jersey10.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  min-height: 100vh;
+  min-height: 100svh;
+  background: #1c1c1c;
+  font-family: system-ui, -apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  color: #e6e6e6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+img, svg { display: block; max-width: 100%; }
+
+a:focus-visible, button:focus-visible {
+  outline: 2px solid #f4d43a;
+  outline-offset: 2px;
+}

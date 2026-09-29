@@ -1,0 +1,59 @@
+/* ==========================================================================
+   Lemon Studio — back-to-top.css
+   Botão flutuante de voltar ao topo.
+   O "motion blur" é um blur PONTUAL (transition de ~180ms no clique),
+   não uma animação contínua — custa 1 repaint, não 1 repaint por frame.
+   A rolagem em si fica por conta do scroll nativo do navegador (grátis).
+   ========================================================================== */
+
+.back-to-top {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 90;
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #262626;
+  border: 1px solid #383838;
+  color: #d4d4d4;
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.back-to-top:hover,
+.back-to-top:focus-visible {
+  border-color: #f4d43a;
+  color: #f4d43a;
+}
+
+.back-to-top svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Camada que recebe o blur pontual ao clicar no botão.
+   Fica no <body> inteiro (exceto o próprio botão), via classe temporária. */
+.page-shell {
+  transition: filter 0.18s ease-out;
+  filter: blur(0);
+}
+
+.page-shell.is-jumping {
+  filter: blur(6px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .back-to-top { transition: opacity 0.2s ease, transform 0.2s ease; }
+  .page-shell, .page-shell.is-jumping { transition: none; filter: none; }
+}

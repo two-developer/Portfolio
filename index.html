@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Lemon Studio</title>
+<meta name="theme-color" content="#1c1c1c">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23f4d43a'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/logo.css">
+<link rel="stylesheet" href="css/lang-switcher.css">
+<link rel="stylesheet" href="css/footer.css">
+<link rel="stylesheet" href="css/back-to-top.css">
+</head>
+<body>
+
+<div id="pageShell" class="page-shell">
+
+  <a href="#" class="logo" style="position:fixed; top:20px; left:20px; z-index:150;">
+    <span class="logo-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none">
+        <path d="M5 9h11l4 4v6H9l-4-4Z" fill="#1c1c1c"/>
+        <path d="M16 9c1-2 3-3 5-2-1 1-1 3-2 4" stroke="#1c1c1c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </span>
+    <span class="logo-text">Lemon<span class="accent">Studio</span></span>
+  </a>
+
+  <div class="lang-switcher" id="langSwitcher">
+    <button type="button" class="lang-switcher-toggle" id="langSwitcherToggle" aria-haspopup="true" aria-expanded="false">
+      <span class="lang-switcher-flag" id="langSwitcherFlag">🇧🇷</span>
+      <span id="langSwitcherLabel">Português</span>
+      <svg class="lang-switcher-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <div class="lang-menu" id="langMenu" role="menu"></div>
+  </div>
+
+  <main style="min-height:100svh; display:grid; place-items:center;">
+    <!-- conteúdo da home entra aqui nas próximas etapas -->
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="logo">
+            <span class="logo-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M5 9h11l4 4v6H9l-4-4Z" fill="#1c1c1c"/>
+                <path d="M16 9c1-2 3-3 5-2-1 1-1 3-2 4" stroke="#1c1c1c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+            <span class="logo-text" style="font-size:26px;">Lemon<span class="accent">Studio</span></span>
+          </a>
+          <p data-i18n="footer.tagline">Modding de Terraria Mobile, feito em conjunto.</p>
+        </div>
+
+        <div class="footer-col">
+          <strong data-i18n="footer.linksTitle">Site</strong>
+          <!-- em breve -->
+        </div>
+
+        <div class="footer-col">
+          <strong data-i18n="footer.projectsTitle">Projetos</strong>
+          <!-- em breve -->
+        </div>
+
+        <div class="footer-col">
+          <strong data-i18n="footer.communityTitle">Comunidade</strong>
+          <a href="https://discord.gg/lemon-studio-1422278971227115532" target="_blank" rel="noopener" data-i18n="footer.discord">Servidor Discord</a>
+          <a href="https://github.com/Lemon-Studio-Official/Home" target="_blank" rel="noopener" data-i18n="footer.github">GitHub</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© <span id="footerYear">2026</span> <span data-i18n="footer.rights">Lemon Studio. Todos os direitos reservados.</span></span>
+        <span data-i18n="footer.madeWith">Feito com bastante limão.</span>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+<button type="button" class="back-to-top" id="backToTop" aria-label="Voltar ao topo">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
+<script src="js/i18n.js" defer></script>
+<script src="js/lang-switcher.js" defer></script>
+<script src="js/back-to-top.js" defer></script>
+<script src="js/main.js" defer></script>
+</body>
+</html>

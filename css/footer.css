@@ -1,0 +1,82 @@
+/* ==========================================================================
+   Lemon Studio — footer.css
+   Layout do rodapé: marca + 3 colunas de links + linha inferior.
+   Hover nos links: só color + transition (barato, sem custo de layout).
+   ========================================================================== */
+
+.site-footer {
+  border-top: 1px solid #2a2a2a;
+  padding: 48px 24px 26px;
+}
+
+.footer-inner {
+  width: min(100%, 1180px);
+  margin: 0 auto;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: minmax(220px, 1.3fr) repeat(3, minmax(0, 1fr));
+  gap: 36px;
+}
+
+@media (max-width: 860px) {
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 560px) {
+  .footer-grid { grid-template-columns: 1fr; }
+}
+
+.footer-brand .logo {
+  /* dentro do footer a logo não deve ficar fixa no canto */
+  position: static;
+}
+
+.footer-brand p {
+  max-width: 280px;
+  margin-top: 14px;
+  font-size: 13px;
+  line-height: 1.65;
+  color: #9a9a9a;
+}
+
+.footer-col strong {
+  display: block;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: #8a8a8a;
+  margin-bottom: 14px;
+}
+
+.footer-col {
+  display: grid;
+  align-content: start;
+  gap: 10px;
+}
+
+.footer-col a {
+  width: fit-content;
+  font-size: 13.5px;
+  color: #d4d4d4;
+  transition: color 0.15s ease;
+}
+
+.footer-col a:hover,
+.footer-col a:focus-visible {
+  color: #f4d43a;
+}
+
+.footer-bottom {
+  margin-top: 42px;
+  padding-top: 20px;
+  border-top: 1px solid #2a2a2a;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 14px;
+  font-size: 12px;
+  color: #6b6b6b;
+}
