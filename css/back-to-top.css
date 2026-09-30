@@ -16,9 +16,9 @@
   display: grid;
   place-items: center;
   border-radius: 50%;
-  background: #262626;
-  border: 1px solid #383838;
-  color: #d4d4d4;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-2);
   opacity: 0;
   transform: translateY(10px);
   pointer-events: none;
@@ -33,8 +33,8 @@
 
 .back-to-top:hover,
 .back-to-top:focus-visible {
-  border-color: #f4d43a;
-  color: #f4d43a;
+  border-color: var(--accent-text);
+  color: var(--accent-text);
 }
 
 .back-to-top svg {

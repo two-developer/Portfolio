@@ -1,0 +1,49 @@
+/* ==========================================================================
+   Lemon Studio — auth-buttons.css
+   Botão "Sign in" (Entrar), só de enfeite por enquanto.
+   Estilo pill preto -> branco no hover, com ícone circular à direita
+   (mesmo padrão do botão de referência "Our Team" do vídeo).
+   ========================================================================== */
+
+.auth-btn {
+  height: 38px;
+  padding: 0 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  border-radius: 10px;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+  background: var(--btn-bg);
+  color: var(--btn-fg);
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.auth-btn:hover,
+.auth-btn:focus-visible {
+  background: #f4d43a;
+  color: #191300;
+}
+
+.auth-btn-icon {
+  width: 20px;
+  height: 20px;
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--btn-icon-bg);
+  transition: background 0.15s ease;
+}
+
+.auth-btn:hover .auth-btn-icon {
+  background: rgba(25, 19, 0, 0.15);
+}
+
+.auth-btn-icon svg {
+  width: 11px;
+  height: 11px;
+}

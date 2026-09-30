@@ -1,0 +1,42 @@
+/* ==========================================================================
+   Lemon Studio — header.css
+   Header fixo só com o grupo da direita (Entrar, hambúrguer, busca).
+   Esconde ao rolar pra baixo e volta ao rolar pra cima (classe .is-hidden,
+   controlada por js/header-scroll.js). Só transform — barato.
+   ========================================================================== */
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 150;
+  height: 80px;
+  padding: 0 max(20px, env(safe-area-inset-right)) 0 max(20px, env(safe-area-inset-left));
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  background: var(--bg);
+  transform: translateY(0);
+  transition: transform 0.28s ease;
+  will-change: transform;
+}
+
+.site-header.is-hidden {
+  transform: translateY(-100%);
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+@media (max-width: 480px) {
+  .site-header { padding: 0 14px; }
+  .header-right { gap: 8px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-header { transition: none; }
+}

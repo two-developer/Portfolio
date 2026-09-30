@@ -13,6 +13,43 @@
   font-display: swap;
 }
 
+/* ---------------------------------------------------------------------
+   Tema: escuro (padrão) e claro. Trocado por data-theme no <html>.
+   --------------------------------------------------------------------- */
+:root {
+  --bg: #1c1c1c;
+  --surface: #232323;
+  --border: #333333;
+  --text: #e6e6e6;
+  --text-2: #d4d4d4;
+  --text-3: #8a8a8a;
+  --text-4: #6b6b6b;
+  --text-strong: #ffffff;
+  --accent-text: #f4d43a;
+  --btn-bg: #1c1c1c;
+  --btn-fg: #ffffff;
+  --btn-icon-bg: rgba(255, 255, 255, 0.12);
+  --shadow: rgba(0, 0, 0, 0.35);
+  color-scheme: dark;
+}
+
+[data-theme="light"] {
+  --bg: #eceef0;
+  --surface: #ffffff;
+  --border: #d3d6da;
+  --text: #1c1c1c;
+  --text-2: #333333;
+  --text-3: #666666;
+  --text-4: #8a8a8a;
+  --text-strong: #000000;
+  --accent-text: #8f7100;
+  --btn-bg: #1c1c1c;
+  --btn-fg: #ffffff;
+  --btn-icon-bg: rgba(255, 255, 255, 0.16);
+  --shadow: rgba(0, 0, 0, 0.12);
+  color-scheme: light;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -21,21 +58,49 @@
 
 html {
   -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
   min-height: 100vh;
   min-height: 100svh;
-  background: #1c1c1c;
+  background: var(--bg);
   font-family: system-ui, -apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-  color: #e6e6e6;
+  color: var(--text);
   -webkit-font-smoothing: antialiased;
+  padding-top: 80px; /* compensa o header fixo (.site-header) */
 }
 
 a { color: inherit; text-decoration: none; }
 img, svg { display: block; max-width: 100%; }
 
+body.menu-open { overflow: hidden; }
+
 a:focus-visible, button:focus-visible {
   outline: 2px solid #f4d43a;
   outline-offset: 2px;
+}
+
+/* ---------------------------------------------------------------------
+   Animação de entrada (scroll reveal)
+   Fade + slide leve, dispara uma vez por elemento (IntersectionObserver).
+   Só transform/opacity — custo mínimo, não pesa em hardware antigo.
+   --------------------------------------------------------------------- */
+[data-in] {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.45s ease, transform 0.45s ease;
+}
+
+[data-in].is-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-in] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
 }

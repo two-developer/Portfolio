@@ -1,63 +1,58 @@
 /* ==========================================================================
    Lemon Studio — i18n.js
    Dicionário simples de traduções. Só as chaves que a página usa hoje
-   (logo/tagline + footer) — cresce junto com o site, sem sobra.
+   (logo, header, footer) — cresce junto com o site, sem sobra.
+   Traduções pensadas por sentido, não literais palavra por palavra.
    ========================================================================== */
 (function () {
   "use strict";
 
   var DICT = {
     en: {
-      "footer.tagline": "Terraria Mobile modding, done together.",
-      "footer.linksTitle": "Site",
-      "footer.projectsTitle": "Projects",
-      "footer.communityTitle": "Community",
-      "footer.home": "Home",
-      "footer.server": "Server",
-      "footer.community": "Community",
-      "footer.exmod": "ExMod",
-      "footer.lemonengine": "LemonEngine",
-      "footer.discord": "Discord server",
-      "footer.github": "GitHub",
+      "nav.language": "Language",
+      "theme.title": "Theme",
+      "theme.light": "Light",
+      "theme.dark": "Dark",
+      "mid.soon": "Coming soon",
+      "search.placeholder": "Search...",
+      "auth.login": "Log in",
+      "auth.signup": "Sign up",
+      "footer.followUs": "Follow us",
       "footer.rights": "Lemon Studio. All rights reserved.",
       "footer.madeWith": "Built with a lot of citrus."
     },
     pt: {
-      "footer.tagline": "Modding de Terraria Mobile, feito em conjunto.",
-      "footer.linksTitle": "Site",
-      "footer.projectsTitle": "Projetos",
-      "footer.communityTitle": "Comunidade",
-      "footer.home": "Início",
-      "footer.server": "Servidor",
-      "footer.community": "Comunidade",
-      "footer.exmod": "ExMod",
-      "footer.lemonengine": "LemonEngine",
-      "footer.discord": "Servidor Discord",
-      "footer.github": "GitHub",
+      "nav.language": "Idioma",
+      "theme.title": "Tema",
+      "theme.light": "Claro",
+      "theme.dark": "Escuro",
+      "mid.soon": "Em breve",
+      "search.placeholder": "Pesquisar...",
+      "auth.login": "Entrar",
+      "auth.signup": "Cadastrar",
+      "footer.followUs": "Siga a gente",
       "footer.rights": "Lemon Studio. Todos os direitos reservados.",
       "footer.madeWith": "Feito com bastante limão."
     },
     ru: {
-      "footer.tagline": "Моддинг Terraria Mobile — вместе.",
-      "footer.linksTitle": "Сайт",
-      "footer.projectsTitle": "Проекты",
-      "footer.communityTitle": "Сообщество",
-      "footer.home": "Главная",
-      "footer.server": "Сервер",
-      "footer.community": "Сообщество",
-      "footer.exmod": "ExMod",
-      "footer.lemonengine": "LemonEngine",
-      "footer.discord": "Discord-сервер",
-      "footer.github": "GitHub",
+      "nav.language": "Язык",
+      "theme.title": "Тема",
+      "theme.light": "Светлая",
+      "theme.dark": "Тёмная",
+      "mid.soon": "Скоро",
+      "search.placeholder": "Поиск...",
+      "auth.login": "Войти",
+      "auth.signup": "Регистрация",
+      "footer.followUs": "Подписывайтесь",
       "footer.rights": "Lemon Studio. Все права защищены.",
       "footer.madeWith": "Сделано с изрядной долей лимона."
     }
   };
 
   var LANGS = [
-    { code: "en", flag: "🇬🇧", label: "English" },
-    { code: "pt", flag: "🇧🇷", label: "Português" },
-    { code: "ru", flag: "🇷🇺", label: "Русский" }
+    { code: "en", label: "English" },
+    { code: "pt", label: "Português" },
+    { code: "ru", label: "Русский" }
   ];
 
   var STORAGE_KEY = "lemonstudio.lang";
@@ -85,6 +80,10 @@
 
     document.querySelectorAll("[data-i18n]").forEach(function (el) {
       el.textContent = t(el.getAttribute("data-i18n"), lang);
+    });
+
+    document.querySelectorAll("[data-i18n-placeholder]").forEach(function (el) {
+      el.setAttribute("placeholder", t(el.getAttribute("data-i18n-placeholder"), lang));
     });
 
     try { window.localStorage.setItem(STORAGE_KEY, lang); } catch (e) { /* ignora */ }

@@ -1,0 +1,101 @@
+/* ==========================================================================
+   Lemon Studio — hamburger.css
+   Botão circular no header + painel de tela cheia que desliza da
+   DIREITA para a ESQUERDA (diferente da referência, que desce por cima).
+   Só transform (translateX) — GPU, sem custo de layout.
+   Vazio por enquanto: conteúdo entra nas próximas etapas.
+   ========================================================================== */
+
+.hamburger-btn {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.hamburger-btn:hover,
+.hamburger-btn:focus-visible {
+  border-color: var(--accent-text);
+  color: var(--accent-text);
+}
+
+.hamburger-btn svg {
+  width: 17px;
+  height: 17px;
+}
+
+.hamburger-btn .icon-close {
+  display: none;
+}
+
+.hamburger-btn[aria-expanded="true"] .icon-open {
+  display: none;
+}
+.hamburger-btn[aria-expanded="true"] .icon-close {
+  display: block;
+}
+
+/* Painel de tela cheia */
+.hamburger-panel {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  background: var(--bg);
+  transform: translateX(100%);
+  transition: transform 0.32s cubic-bezier(.22, .8, .28, 1);
+  overflow-y: auto;
+}
+
+.hamburger-panel.open {
+  transform: translateX(0);
+}
+
+.hamburger-panel-close {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 310;
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease, transform 0.15s ease;
+}
+
+.hamburger-panel-close:hover,
+.hamburger-panel-close:focus-visible {
+  border-color: var(--accent-text);
+  color: var(--accent-text);
+  transform: rotate(90deg);
+}
+
+.hamburger-panel-close svg {
+  width: 17px;
+  height: 17px;
+}
+
+.hamburger-panel-empty {
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  color: var(--text-4);
+  font-size: 13.5px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hamburger-panel { transition: none; }
+  .hamburger-panel-close { transition: none; }
+}

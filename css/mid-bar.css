@@ -1,0 +1,76 @@
+/* ==========================================================================
+   Lemon Studio — mid-bar.css
+   Barra no meio da tela (abaixo do centro) com 6 opções, por enquanto
+   todas "Em breve". Entra animada (escalonada) e some ao rolar pra baixo,
+   igual ao header (classe .is-hidden via js/header-scroll.js).
+   Reaproveita .nav-link (barrinha amarela no hover). Só transform/opacity.
+   ========================================================================== */
+
+.mid-bar {
+  position: fixed;
+  left: 50%;
+  top: 64%;
+  z-index: 140;
+  width: min(calc(100% - 32px), 820px);
+  padding: 8px 10px;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  align-items: center;
+  gap: 4px;
+  border-radius: 14px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: 0 12px 30px var(--shadow);
+  transform: translate(-50%, 0);
+  transition: transform 0.28s ease, opacity 0.28s ease;
+  will-change: transform, opacity;
+  animation: mid-bar-in 0.6s ease 0.15s backwards;
+}
+
+.mid-bar.is-hidden {
+  transform: translate(-50%, 28px);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.mid-item {
+  justify-self: center;
+  padding: 8px 2px;
+  white-space: nowrap;
+  color: var(--text-3);
+  transition: color 0.15s ease, transform 0.2s ease;
+  animation: mid-item-in 0.45s ease backwards;
+}
+
+.mid-item:hover,
+.mid-item:focus-visible {
+  color: var(--text-strong);
+  transform: translateY(-2px);
+}
+
+.mid-item:nth-child(1) { animation-delay: 0.35s; }
+.mid-item:nth-child(2) { animation-delay: 0.42s; }
+.mid-item:nth-child(3) { animation-delay: 0.49s; }
+.mid-item:nth-child(4) { animation-delay: 0.56s; }
+.mid-item:nth-child(5) { animation-delay: 0.63s; }
+.mid-item:nth-child(6) { animation-delay: 0.70s; }
+
+@keyframes mid-bar-in {
+  from { opacity: 0; transform: translate(-50%, 24px); }
+}
+@keyframes mid-item-in {
+  from { opacity: 0; transform: translateY(10px); }
+}
+
+@media (max-width: 640px) {
+  .mid-bar {
+    top: 58%;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    row-gap: 2px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mid-bar, .mid-item { animation: none; }
+  .mid-bar, .mid-item { transition: none; }
+}

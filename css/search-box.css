@@ -1,0 +1,58 @@
+/* ==========================================================================
+   Lemon Studio — search-box.css
+   Barra de pesquisa do header (só de enfeite por enquanto).
+   No celular ela vira só a lupa e abre ao tocar (cabe no header sem apertar).
+   ========================================================================== */
+
+.search-box {
+  height: 38px;
+  width: 190px;
+  padding: 0 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 8px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  cursor: text;
+  transition: border-color 0.15s ease, width 0.2s ease;
+}
+
+.search-box:focus-within {
+  border-color: var(--accent-text);
+  width: 230px;
+}
+
+.search-box svg {
+  width: 15px;
+  height: 15px;
+  flex: 0 0 auto;
+  color: var(--text-4);
+}
+
+.search-box input {
+  width: 100%;
+  min-width: 0;
+  background: none;
+  border: none;
+  outline: none;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 12.5px;
+  color: var(--text);
+}
+
+.search-box input::placeholder {
+  color: var(--text-4);
+}
+
+@media (max-width: 900px) {
+  .search-box { width: 150px; }
+  .search-box:focus-within { width: 190px; }
+}
+
+@media (max-width: 560px) {
+  .search-box:not(:focus-within) { width: 38px; padding: 0 11px; }
+  .search-box:not(:focus-within) input { opacity: 0; }
+  .search-box:focus-within { width: 170px; }
+}

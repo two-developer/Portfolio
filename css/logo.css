@@ -21,11 +21,9 @@
   width: 40px;
   height: 40px;
   flex: 0 0 auto;
-  border-radius: 10px;
-  background: #f4d43a;
-  display: grid;
-  place-items: center;
   transition: transform 0.15s ease;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
 }
 
 .logo:hover .logo-icon,
@@ -33,24 +31,19 @@
   transform: rotate(-8deg);
 }
 
-.logo-icon svg {
-  width: 30px;
-  height: 30px;
-}
-
 .logo-text {
   font-family: "Jersey 10", system-ui, sans-serif;
   font-size: 30px;
   line-height: 1;
   letter-spacing: 0.01em;
-  color: #ffffff;
+  color: var(--text-strong);
   white-space: nowrap;
   /* mantém os pixels nítidos e não borrados em qualquer zoom */
   image-rendering: pixelated;
 }
 
 .logo-text .accent {
-  color: #f4d43a;
+  color: var(--accent-text);
 }
 
 @media (prefers-reduced-motion: reduce) {

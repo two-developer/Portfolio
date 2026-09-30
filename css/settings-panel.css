@@ -1,0 +1,88 @@
+/* ==========================================================================
+   Lemon Studio — settings-panel.css
+   Conteúdo do menu hambúrguer: seletor de Idioma (bandeiras) e Tema
+   (claro/escuro). Botões grandes, bons de tocar no celular.
+   ========================================================================== */
+
+.settings {
+  width: min(100% - 40px, 460px);
+  margin: 0 auto;
+  padding: 110px 0 60px;
+  display: grid;
+  gap: 34px;
+}
+
+.settings-group h2 {
+  margin-bottom: 12px;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+
+.settings-options {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.settings-options.two {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.settings-option {
+  display: grid;
+  justify-items: center;
+  gap: 9px;
+  padding: 16px 8px 14px;
+  border-radius: 12px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-2);
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease, transform 0.15s ease;
+}
+
+.settings-option:hover,
+.settings-option:focus-visible {
+  border-color: var(--accent-text);
+  transform: translateY(-2px);
+}
+
+.settings-option.is-active {
+  border-color: var(--accent-text);
+  color: var(--accent-text);
+}
+
+.settings-option .flag svg {
+  width: 36px;
+  height: 24px;
+  border-radius: 4px;
+  display: block;
+}
+
+.settings-option .theme-icon svg {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
+/* Entrada escalonada dos grupos quando o painel abre (uma vez por abertura) */
+.hamburger-panel.open .settings-group {
+  animation: settings-in 0.4s ease backwards;
+}
+.hamburger-panel.open .settings-group:nth-child(2) { animation-delay: 0.08s; }
+
+@keyframes settings-in {
+  from { opacity: 0; transform: translateY(12px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hamburger-panel.open .settings-group { animation: none; }
+  .settings-option { transition: none; }
+}
